@@ -18,10 +18,10 @@ class App extends Component {
     })
   }
 
-  
   componentDidMount() {
-    axios.get("http://localhost:3001/table1").then ((response) => {
+    axios.get("https://djkwemo2.herokuapp.com/table1").then ((response) => {
       this.setLogo(response.data[0]); 
+      console.log(response.data[0]);
     });
   };
 
