@@ -1,25 +1,58 @@
+import React, {Component, useState, useEffect} from 'react';
 import logo from './logo.svg';
+import axios from "axios"; 
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Congrats Sakhia, the site is up and running!!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      logo: [], 
+    };
+  }
+
+  setLogo = (item) => {
+    this.setState({
+      logo: item
+    })
+  }
+
+  
+  componentDidMount() {
+    axios.get("http://localhost:3001/table1").then ((response) => {
+      this.setLogo(response.data[0]); 
+    });
+  };
+
+  render(){
+
+    console.log(this.state.logo.image);
+
+    const icon = (
+        <img src = {this.state.logo.image}/>
+    )
+
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Congrats Sakhia, the site is up and running!!
+          </p>
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
+          {icon}
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
