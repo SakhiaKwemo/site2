@@ -18,19 +18,12 @@ class App extends Component {
     })
   }
 
-  componentDidMount() {
-    axios.get("https://djkwemo2.herokuapp.com/table1").then ((response) => {
-      this.setLogo(response.data[0]); 
-      console.log(response.data[0]);
-    });
-  };
-
   render(){
 
     console.log(this.state.logo.image);
 
     const icon = (
-        <img src = {this.state.logo.image}/>
+        <img src = "8.png"/>
     )
 
     return (
