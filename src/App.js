@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axios from './axios';
 
 class App extends Component {
 
@@ -16,6 +17,14 @@ class App extends Component {
       logo: item
     })
   }
+
+  
+  componentDidMount() {
+    axios.get("https://djkwemo2.herokuapp.com/table1").then ((response) => {
+      this.setLogo(response.data[0]); 
+      console.log(response.data[0]);
+    });
+  };
 
   render(){
 
