@@ -22,7 +22,7 @@ class App extends Component {
     console.log(this.state.logo.image);
 
     const icon = (
-        <img src = "8.png"/>
+        <img alt="Girl in a jacket" src = "8.png"/>
     )
 
     return (
